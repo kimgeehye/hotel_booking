@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../include/includeFile.jsp" %>   
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>예약하기</title>
+</head>
+<body>
+<%@include file="../menu.jsp" %>
+
+	<div class="container">
+		<img src="${path}/resources/images/Deluxe.jpg" class="" style="float: left" alt="Deluxe" width="500" height="500">
+	</div>
+
+
+
+<%@include file="../footer.jsp" %>
+</body>
+</html>

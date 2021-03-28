@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.booing.BoardMapper">
+	
+	<select id="selectTotCnt" resultType="int">
+		select count(*) totCnt from HotelBoard
+		<include refid="find"/>
+	</select>
+	
+	<insert id="insert" parameterType="BoardDTO">
+		<selectKey keyProperty="bnum" resultType="int" order="BEFORE">
+			select bseq.nextval from dual	
+		</selectKey>
+		insert into HotelBoard(bnum,userID,subject,content,ip)
+		values(#{bnum},#{userID},#{subject},#{content},#{ip})
+	</insert>
+	
+		<select id="selectList" resultType="BoardDTO">
+		select * from (
+		  select rownum rown, b.* 
+		  from 
+		   (select * from HotelBoard
+		     <include refid="find"/>
+		     order by bnum desc ) b) b
+		where rown between #{startNo} and #{endNo}
+	</select>
+
+	<select id="selectOne" resultType="BoardDTO">
+		select * from HotelBoard 
+		where bnum = #{bnum}
+	</select>
+	
+
+</mapper>

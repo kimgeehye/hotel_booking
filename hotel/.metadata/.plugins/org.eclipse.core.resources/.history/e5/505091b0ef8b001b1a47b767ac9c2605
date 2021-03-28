@@ -1,0 +1,34 @@
+package com.spring.booking.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spring.booking.dao.HelpUserDAO;
+import com.spring.booking.dto.HelpUserDTO;
+
+@Service
+public class HelpUserServiceImpl implements HelpUserService{
+
+	@Autowired
+	private HelpUserDAO hudao;
+	
+	@Override
+	public void insert(int type, int num, String userID) {
+		HelpUserDTO hudto = setHelpUserDTO(type, num, userID);
+		hudao.insert(hudto);
+		
+	}
+
+	@Override
+	public HelpUserDTO selectOne(int type, int num, String userID) {
+		HelpUserDTO hudto = setHelpUserDTO(type, num, userID);
+		return hudao.selectOne(hudto);
+	}
+
+	@Override
+	public int delete(int type, int num, String userID) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

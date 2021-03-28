@@ -1,0 +1,33 @@
+package com.spring.booking.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.spring.booking.dto.BoardDTO;
+import com.spring.booking.dto.PageDTO;
+
+@Repository
+public class BoardDAOImpl implements BoardDAO {
+
+	@Autowired
+	private SqlSession session;
+	
+	@Override
+	public void insert(BoardDTO bdto) throws Exception {
+		session.insert("com.spring.booing.BoardMapper.insert", bdto);
+	}
+
+	@Override
+	public List<BoardDTO> selecList(PageDTO pdto) throws Exception {
+		return session.selectList("com.spring.booing.BoardMapper.selecList", pdto);
+	}
+
+	@Override
+	public BoardDTO selectOne(int bnum) throws Exception {
+		return session.selectOne("com.spring.booing.BoardMapper.selectOne", bnum);
+	}
+
+}

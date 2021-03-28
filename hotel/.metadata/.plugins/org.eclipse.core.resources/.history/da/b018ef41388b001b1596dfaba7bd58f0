@@ -1,0 +1,16 @@
+package com.spring.booking.dao;
+
+import java.util.List;
+
+import com.spring.booking.dto.BoardDTO;
+import com.spring.booking.dto.PageDTO;
+
+public interface BoardDAO {
+	public List<BoardDTO> selecList(PageDTO pdto) throws Exception; //전체 조회
+	public BoardDTO selectOne(int bnum) throws Exception; //한건 조회
+	
+	public void insert(BoardDTO bdto) throws Exception; //문의글 추가
+	
+	
+	
+}

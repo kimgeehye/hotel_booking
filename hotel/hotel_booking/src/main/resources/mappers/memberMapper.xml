@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.booking.MemberMapper">
+
+	<!-- 일반유저 -->
+	<select id="selectOne" resultType="MemberDTO">
+		select * from HotelMember
+		where userID = #{userID}
+	</select>
+
+	<!-- 일반유저 -->
+	<insert id="insert">
+		insert into HotelMember(userID,userPW,userEmail,userPhone,zip,addr1,addr2)
+		values(#{userID},#{userPW},#{userEmail},#{userPhone},#{zip},#{addr1},#{addr2})
+	</insert>
+
+	<select id="selectOneNaver" resultType="MemberDTO">
+		select * from HotelMember
+		where userID = #{userEmail} and simplejoin = 1
+	</select>
+	
+	<!-- 네이버 간편가입 유저 -->
+	<insert id="insertNaver">
+		insert into member(userID,userPW,userEmail,userPhone,simplejoin)
+		values(#{userEmail}, '', #{userEmail},#{userPhone}, 1);
+	</insert>
+
+
+	<!-- emailauth를 1로 update -->
+	<update id="emailauthUpdate">
+		update HotelMember
+		set emailauth = '1'
+		where userid=#{userid}
+	</update>
+	
+	
+</mapper>

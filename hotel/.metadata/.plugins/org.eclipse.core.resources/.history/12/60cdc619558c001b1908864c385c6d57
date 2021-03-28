@@ -1,0 +1,92 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../include/includeFile.jsp" %>   
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>예약 페이지</title>
+<script type="text/javascript">
+ 	$(function() {
+ 		//예약하기 버튼 클릭
+		$('#btnBooking').on('click', function(e) {
+			e.preventDefault();
+			const roomnum = frmBooking.roomnum.value;
+			const startdate = frmBooking.startdate.value;
+			const enddate = frmBooking.enddate.value;
+			const userName = frmBooking.userName.value;
+			const userEmail = frmBooking.userEmail.value;
+			const userPhone = frmBooking.startdate.value;
+
+			
+			
+			
+			
+			
+		});
+
+		
+		
+		
+		
+		
+		
+	});
+
+</script>
+</head>
+<body>
+<%@include file="../menu.jsp" %>
+
+	<div class="container">
+		<img src="${path}/resources/images/Deluxe.jpg" class="" style="float: left" alt="Deluxe" align="left" width="500" height="500">
+			<h2>예약 페이지</h2>
+	<form name="frmBooking" id="frmBooking" action="${path}/booking/book_2" method="post"></form>
+		<h3>예약자 정보</h3>
+		<table>
+			<tr>
+				<th>룸번호</th>
+				<td><input type="text" name="roomnum"></td>
+			</tr>
+			<tr>
+				<th>체크인</th>
+				<td><input type="date" name="startdate"></td>
+			</tr>
+			<tr>
+				<th>체크아웃</th>
+				<td><input type="date" name="enddate"></td>
+			</tr>
+			
+			<tr>
+				<th>이름</th>
+				<td><input type="text" name="userName"></td>
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td><input type="email"  name="userEmail"></td>
+			</tr>
+			<tr>
+				<th>연락처</th>
+				<td><input type="text"  name="userPhone"></td>
+			</tr>
+			<tr>
+				<th>요청사항</th>
+				<td><textarea rows="10" cols="35" name="content" id="content"></textarea><td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<button id="btnBooking">예약하기</button>
+					<input type="reset" value="취소">
+					<button id="btnMain">메인으로</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	
+
+
+
+<%@include file="../footer.jsp" %>
+</body>
+</html>

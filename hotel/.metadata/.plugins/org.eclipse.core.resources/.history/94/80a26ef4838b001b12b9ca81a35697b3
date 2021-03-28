@@ -1,0 +1,36 @@
+package com.spring.booking.service;
+
+import java.math.BigInteger;
+import java.net.URLEncoder;
+import java.security.SecureRandom;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class NaverLoginServiceImpl implements NaverLoginService {
+
+	@Override
+	public Map<String, String> getApiUrl() throws Exception {
+		//apiurl과 state 리턴
+		Map<String, String> resultMap = new HashMap<>();
+		//네이버 인증 apiurl 생성
+	    String clientId = "Y2W05LkFxVVdEwFxANI8";//애플리케이션 클라이언트 아이디값";
+	    String redirectURI = URLEncoder.encode("http://localhost:8081/booking/callback", "UTF-8");
+	    SecureRandom random = new SecureRandom();
+	    String state = new BigInteger(130, random).toString();
+	    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+	    apiURL += "&client_id=" + clientId;
+	    apiURL += "&redirect_uri=" + redirectURI;
+	    apiURL += "&state=" + state;
+	    
+		resultMap.put("apiURL",apiURL);
+		resultMap.put("state",state); //클라이언트 인증 값
+		
+		
+		return resultMap;
+	}
+
+	
+}

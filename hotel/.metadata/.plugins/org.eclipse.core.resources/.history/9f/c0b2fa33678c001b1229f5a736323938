@@ -1,0 +1,5 @@
+package com.spring.booking.controller;
+
+public class ChatbotController {
+
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.booing.HelpUsergMapper">
+	<!-- 게시물 조회/도움/비도움 userID저장 -->
+	<insert id="insert">
+		insert into hotelhelpuser (gubun,num,userID,helpgubun)
+		values (#{gubun},#{num}, #{userID},#{helpgubun})
+	</insert>
+	
+	<!-- 게시물 조회/도움/비도움 조회한 유저 --> 
+	<select id="select"  resultType="LikeUserDTO">
+		select *
+		from hotelhelpuser
+		where gubun = #{gubun}
+		and num = #{num}
+		and userID=#{userID}
+		and helpgubun=#{helpgubun}
+	</select>
+	
+	<delete id="delete">
+		delete from hotelhelpuser
+		where gubun = #{gubun}
+		and num = #{num}
+		and userID=#{userID}
+		and helpgubun=#{helpgubun}
+	</delete>
+	
+
+</mapper>

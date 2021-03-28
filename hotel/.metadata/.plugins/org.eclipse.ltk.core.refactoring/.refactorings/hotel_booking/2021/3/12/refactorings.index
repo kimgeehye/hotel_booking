@@ -1,0 +1,35 @@
+1616171137519	Move compilation unit
+1616218993105	Rename resource 'inclide'
+1616219623043	Delete element
+1616219624723	Delete element
+1616224331248	Delete elements
+1616225870120	Delete element
+1616225871763	Delete element
+1616225873244	Delete element
+1616225874656	Delete element
+1616225998941	Rename resource 'boardFileMapper.xml'
+1616226027359	Delete element
+1616226534713	Rename type 'HotelBoardfileDTO'
+1616226542948	Rename type 'HotelHelpuserDTO'
+1616226548703	Rename type 'HotelRoomfileDTO'
+1616227699407	Delete element
+1616228093795	Copy file
+1616228125400	Copy file
+1616228145721	Copy file
+1616228174562	Copy file
+1616228205151	Copy file
+1616228227318	Copy file
+1616228235229	Rename resource 'RoomMapper.xml'
+1616228246159	Rename resource 'RoomFileMapper.xml'
+1616228250736	Rename resource 'ReplyMapper.xml'
+1616228350226	Delete element
+1616228458584	Rename type 'HotelBoardDTO'
+1616228467173	Rename type 'HotelBoardFileDTO'
+1616228472796	Rename type 'HotelBookingDTO'
+1616228478219	Rename type 'HotelHelpUserDTO'
+1616228483227	Rename type 'HotelMemberDTO'
+1616228491949	Rename type 'HotelReplyDTO'
+1616228496577	Rename type 'HelpUserDTO'
+1616228500925	Rename type 'HotelRoomDTO'
+1616228506216	Rename type 'HotelRoomFileDTO'
+1616228569584	Rename type 'UserDTO'

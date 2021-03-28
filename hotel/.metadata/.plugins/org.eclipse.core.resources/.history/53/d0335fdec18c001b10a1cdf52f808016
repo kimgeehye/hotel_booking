@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.booikng.BoardMapper">
+	
+	<sql id="find">
+		<if test="findKey=='userID'">
+			where userID like '%' || #{findValue} || '%'
+		</if>
+		<if test="findKey=='subject'">
+			where subject like '%' || #{findValue} || '%'
+		</if>
+		<if test="findKey=='content'">
+			where content like '%' || #{findValue} || '%'
+		</if>
+		<if test="findKey=='subcon'">
+			where subject like '%' || #{findValue} || '%'
+			   or content like '%' || #{findValue} || '%'
+		</if>
+	</sql>
+	
+	<select id="selecttotCnt" resultType="int">
+		select count(*) totCnt from HotelBoard
+		<include refid="find"/>
+	</select>
+	
+
+	<select id="selectList" resultType="BoardDTO">
+		select * from (
+		  select rownum rown, b.* 
+		  from 
+		   (select * from board
+		     <include refid="find"/>
+		     order by bnum desc ) b) b
+		where rown between #{startNo} and #{endNo}
+	</select>
+
+
+	<select id="selectOne" resultType="BoardDTO">
+		select * from HotelBoard 
+		where bnum = #{bnum}
+	</select>
+	
+	<insert id="insert" parameterType="BoardDTO">
+		<selectKey keyProperty="bnum" resultType="int" order="BEFORE">
+			select bseq.nextval from dual
+		</selectKey>
+		insert into HotelBoard (bnum,userID,subject,content,ip) 
+		values(#{bnum},#{userID},#{subject},#{content},#{ip})
+	</insert>
+	
+	<update id="update">
+		update HotelBoard
+		set subject =#{subject},
+		    content = #{content},
+		    modifydate = sysdate
+		where bnum = #{bnum}
+	</update>
+	
+	<delete id="delete">
+		delete from HotelBoard
+		where bnum = #{bnum}
+	</delete>
+	
+	<!-- 조회수+1 -->
+	<update id="updateReadCount">
+		update HotelBoard
+		set readcount = readcount+1
+		where bnum = #{bnum}
+	</update>
+	
+	<!-- 좋아요+1 -->
+	<update id="updateGoodCnt">
+		update HotelBoard
+		set goodcnt = goodcnt+1
+		where bnum = #{bnum}
+	</update>
+	
+	<!-- 싫어요+1 -->
+	<update id="updateNonGoodCnt">
+		update HotelBoard
+		set nongoodcnt = nongoodcnt+1
+		where bnum = #{bnum}
+	</update>
+	
+	<!-- 좋아요-1 -->
+	<update id="updateLikeCntMinus">
+		update HotelBoard
+		set goodcnt = goodcnt-1
+		where bnum = #{bnum}
+	</update>
+	
+	<!-- 싫어요-1 -->
+	<update id="updateNonGoodCntMinus">
+		update HotelBoard
+		set nongoodcnt = nongoodcnt-1
+		where bnum = #{bnum}
+	</update>
+
+	
+
+</mapper>

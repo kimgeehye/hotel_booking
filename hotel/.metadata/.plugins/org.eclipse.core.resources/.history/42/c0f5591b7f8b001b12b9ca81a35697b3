@@ -1,0 +1,31 @@
+package com.spring.booking.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class NaverLoginController {
+	private static final Logger logger = LoggerFactory.getLogger(NaverLoginController.class);
+	
+	
+	//네이버 로그인 폼 호출
+	@RequestMapping(value = "naverlogin")
+	public String naverLogin() {	
+		return "naverlogin/naverlogin";
+	}
+	
+	
+	//네이버 로그인 인증코드 콜백
+	@RequestMapping("callback")
+	public void callback() {
+		
+	}
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../include/includeFile.jsp" %>  
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문의사항 등록</title>
+</head>
+<body>
+<%@include file="../menu.jsp" %>
+<div class="container">
+	<h2>문의사항 등록</h2>
+	
+	<form id="frnAdd" name="frmAdd">
+		제목 : <input type="text" name="subject" id="subject"><br>
+		내용 :
+		<textarea rows="10" cols="35" name="content" id="content"></textarea><br>
+		<hr>
+		파일 :
+			<button id="btnFileAdd">추가</button>
+			<ul id="fileGroup">
+				<li><input type="file" name="uploadfiles"><button class="btnFileRemove">삭제</button></li>
+			</ul>
+		
+		<hr>
+		<button id="btnAdd">등록</button>
+		<input type="reset" value="취소">
+		
+	</form>
+
+
+<%@include file="../footer.jsp" %>
+</div>
+</body>
+</html>

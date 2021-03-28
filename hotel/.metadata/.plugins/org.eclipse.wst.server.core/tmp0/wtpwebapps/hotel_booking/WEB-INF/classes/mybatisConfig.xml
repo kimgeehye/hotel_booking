@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- null 허용 -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+
+
+	<typeAliases>
+		<typeAlias type="com.spring.booking.dto.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.spring.booking.dto.BoardFileDTO" alias="BoardFileDTO"/>
+		<typeAlias type="com.spring.booking.dto.BookingDTO" alias="BookingDTO"/>
+		<typeAlias type="com.spring.booking.dto.HelpUserDTO" alias="HelpUserDTO"/>
+		<typeAlias type="com.spring.booking.dto.MemberDTO" alias="MemberDTO"/>
+		<typeAlias type="com.spring.booking.dto.ReplyDTO" alias="ReplyDTO"/>
+		<typeAlias type="com.spring.booking.dto.RoomDTO" alias="RoomDTO"/>
+		<typeAlias type="com.spring.booking.dto.RoomFileDTO" alias="RoomFileDTO"/>
+	</typeAliases>
+
+</configuration>

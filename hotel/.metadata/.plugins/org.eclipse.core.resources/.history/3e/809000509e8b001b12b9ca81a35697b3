@@ -1,0 +1,10 @@
+package com.spring.booking.dao;
+
+import com.spring.booking.dto.MemberDTO;
+
+public interface MemberDAO {
+	public MemberDTO selectOne(String userID); //회원조회
+	public int insert(MemberDTO mdto); //회원가입
+	public void emailauthUpdate(String userID); //이메일인증
+	public int insertNaver(MemberDTO mdto); //네이버 간편 가입
+}

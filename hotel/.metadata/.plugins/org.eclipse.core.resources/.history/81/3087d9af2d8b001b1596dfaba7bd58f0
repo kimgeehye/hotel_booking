@@ -1,0 +1,42 @@
+package com.spring.booking.dao;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+
+import com.spring.booking.dto.BoardFileDTO;
+
+@Repository
+public class BoardFileDAOImpl implements BoardFileDAO{
+	
+	private static final Logger logger = LoggerFactory.getLogger(BoardFileDAOImpl.class);
+
+	@Override
+	public void insert(BoardFileDTO bfdto) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<BoardFileDTO> selectList(int bnum) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(int bnum) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteBoard(int bnum) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+	
+}

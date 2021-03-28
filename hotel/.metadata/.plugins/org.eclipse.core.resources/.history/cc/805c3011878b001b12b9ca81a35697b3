@@ -1,0 +1,11 @@
+package com.spring.booking.service;
+
+import java.util.Map;
+
+public interface NaverLoginService {
+	
+	public Map<String, String> getApiUrl() throws Exception; //네이버 인증 apiurl 생성
+	
+	public void callback(String code, String state); //callback
+	
+}
